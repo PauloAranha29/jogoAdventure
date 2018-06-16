@@ -9,6 +9,13 @@ package adventure;
  *
  * @author 17120069
  */
-public class JogoChaves {
+public class AppAdventure {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }

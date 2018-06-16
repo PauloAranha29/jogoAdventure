@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adventure;
+package adventure.Salas;
 
 /**
  *
- * @author 17120069
+ * @author Henrique
  */
-public class BombaNeutrons {
+public class HallEntrada {
     
 }

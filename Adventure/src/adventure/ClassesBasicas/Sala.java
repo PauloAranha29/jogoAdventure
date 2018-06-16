@@ -1,4 +1,7 @@
-package ClassesBasicas;
+package adventure.ClassesBasicas;
+import adventure.ClassesBasicas.Objeto;
+import adventure.ClassesBasicas.Mochila;
+import adventure.ClassesBasicas.Ferramenta;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

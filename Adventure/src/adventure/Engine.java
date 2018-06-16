@@ -7,15 +7,8 @@ package adventure;
 
 /**
  *
- * @author 17120069
+ * @author Henrique
  */
-public class Adventure {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Engine {
     
 }
