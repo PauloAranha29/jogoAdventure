@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adventure.Ferramentas;
+package Adventure.src.adventure.Ferramentas;
 
 /**
  *
  * @author 17120069
  */
-import adventure.ClassesBasicas.Ferramenta;
 
-public class PistolaLaser extends Ferramenta  {
+import Adventure.src.adventure.ClassesBasicas.Ferramenta;
+
+public class PistolaLaser extends Ferramenta {
     
         public PistolaLaser(){
         

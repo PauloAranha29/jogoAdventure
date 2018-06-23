@@ -1,6 +1,4 @@
-package adventure.ClassesBasicas;
-
-import adventure.ClassesBasicas.Ferramenta;
+package Adventure.src.adventure.ClassesBasicas;
 
 public abstract class Objeto {
     private String descricaoAntesAcao;

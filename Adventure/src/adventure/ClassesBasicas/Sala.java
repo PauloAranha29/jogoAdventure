@@ -1,7 +1,4 @@
-package adventure.ClassesBasicas;
-import adventure.ClassesBasicas.Objeto;
-import adventure.ClassesBasicas.Mochila;
-import adventure.ClassesBasicas.Ferramenta;
+package Adventure.src.adventure.ClassesBasicas;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +7,7 @@ import java.util.stream.Collectors;
 public abstract class Sala {
 	private String nome;
 	private Mochila mochila;
-	private Map<String,Objeto> objetos;
+	private Map<String, Objeto> objetos;
 	private Map<String,Ferramenta> ferramentas;
 	private Map<String,Sala> portas;
 	private String repVisual;
@@ -84,7 +81,7 @@ public abstract class Sala {
 		return portas.get(porta);
 	}
 
-	public abstract String textoDescricao();						
+	public abstract String textoDescricao();
 
 	public abstract boolean usa(String ferramenta);
 }
