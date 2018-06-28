@@ -41,7 +41,8 @@ public class SalaEsquerda extends Sala {
 		    descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
                     
 		}else if(escuro && cont > 0);{
-                 descricao.append("Você achou um jogoChaves!\n");}
+                 descricao.append("Você então apaga sua lanterna e caminha para a saída, tropeçando em\n");
+                descricao.append("Um JogoChaves! Mais sorte do que juízo... \n");}
                 
                 descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
 		return descricao.toString();
