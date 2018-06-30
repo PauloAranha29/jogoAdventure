@@ -15,4 +15,8 @@ public class Ferramenta {
 	public boolean usar() {
 		return true;
 	}
+        
+        public boolean guardar() {
+		return true;
+	}
 }
