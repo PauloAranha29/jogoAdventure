@@ -13,10 +13,10 @@ import Adventure.src.adventure.Ferramentas.JogoChaves;
  *
  * @author Henrique
  */
-public class ChaoMovel extends Objeto {
+public class DisplayGigante extends Objeto {
 
-    public ChaoMovel() {
-        super("Chão fechado", "Chão aberto");
+    public DisplayGigante(String descricaoAntesAcao, String descricaoDepoisAcao) {
+        super("Display apagado", "123456");
     }
 
     @Override
