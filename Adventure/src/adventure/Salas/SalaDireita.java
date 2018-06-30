@@ -55,5 +55,5 @@ public class SalaDireita extends Sala {
 		cm.usar(f);
 	        return true; // E nosso herói cai no subsolo...
         }
-        Scanner in = new Scanner(System.in);    
+        
 }

@@ -41,6 +41,6 @@ public class HallEntrada extends Sala {
     public boolean usa(String ferramenta) {
         return false;
     }
-        Scanner in = new Scanner(System.in);
+       
 }    
 

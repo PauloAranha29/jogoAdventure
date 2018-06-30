@@ -9,7 +9,6 @@ import Adventure.src.adventure.ClassesBasicas.Ferramenta;
 import Adventure.src.adventure.ClassesBasicas.Sala;
 import Adventure.src.adventure.Ferramentas.JogoChaves;
 import Adventure.src.adventure.Ferramentas.Lanterna;
-import Adventure.src.adventure.Ferramentas.PistolaLaser;
 import java.util.Scanner;
 
 /**
@@ -19,6 +18,7 @@ import java.util.Scanner;
 public class SalaEsquerda extends Sala {
    private boolean escuro;
    private boolean cont = false;
+   private int cont2 = 0;
     public SalaEsquerda() {
         super("SalaEsquerda");
           escuro = true;
@@ -37,7 +37,7 @@ public class SalaEsquerda extends Sala {
 		    descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
 		    descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
                     
-		}else if(cont == true);{
+		}else if(cont == true && cont2 == 1);{
                  descricao.append("Você então apaga sua lanterna e caminha para a saída, tropeçando em\n");
                 descricao.append("um JogoChaves! Mais sorte do que juízo... \n");
                 JogoChaves jogoChaves = new JogoChaves();
@@ -71,7 +71,7 @@ public class SalaEsquerda extends Sala {
                 }
          else{return false;}      
     }
-    
+        // método criado somente para essa classe
         public boolean guarda(String ferramenta) { //guarda lanterna e libera JogoChaves
             Ferramenta f = this.getMochila().usar(ferramenta);
                 if (f == null) {
@@ -79,14 +79,12 @@ public class SalaEsquerda extends Sala {
                 }
                 if (f instanceof Lanterna) {
                      escuro = true;
-                     cont = true;     
+                     cont = true;
+                     cont2++;
                 return true;
                 }
         else{return false;}      
     }
-         
             
-    
-        Scanner in = new Scanner(System.in);
-        
+            
 }
