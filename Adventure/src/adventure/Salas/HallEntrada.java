@@ -17,30 +17,31 @@ import java.util.Scanner;
  */
 public class HallEntrada extends Sala {
 
-
     public HallEntrada() {
         super("HallEntrada");
         Lanterna lanterna = new Lanterna();
         PistolaLaser pistolaLaser = new PistolaLaser();
-        this.getFerramentas().put(lanterna.getDescricao(),lanterna);
-        this.getFerramentas().put(pistolaLaser.getDescricao(),pistolaLaser);
+        this.getFerramentas().put(lanterna.getDescricao(), lanterna);
+        this.getFerramentas().put(pistolaLaser.getDescricao(), pistolaLaser);
     }
+
     @Override
-    public String textoDescricao(){
-                 StringBuilder descricao = new StringBuilder();
-		descricao.append("Voce esta no ").append(this.getNome()).append("\n");
-		descricao.append("Parece uma sala completamente vazia. Há duas portas, uma a direita e outra a esquerda\n");
-                descricao.append("Qual porta você escolhe?\n");
-		descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
-		descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-		descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
-        return  descricao.toString();
+    public String textoDescricao() {
+        StringBuilder descricao = new StringBuilder();
+        descricao.append("Voce esta no ").append(this.getNome()).append("\n");
+        descricao.append("Parece uma sala completamente vazia. Há duas portas, uma a direita e outra a esquerda\n");
+        descricao.append("Qual porta você escolhe?\n");
+        descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
+        descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
+        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+        return descricao.toString();
     }
 
     @Override
     public boolean usa(String ferramenta) {
         return false;
     }
-       
-}    
+    
+    Scanner in = new Scanner(System.in);
 
+}
