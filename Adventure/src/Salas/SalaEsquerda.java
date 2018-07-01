@@ -9,7 +9,7 @@ import ClassesBasicas.Ferramenta;
 import ClassesBasicas.Sala;
 import Ferramentas.JogoChaves;
 import Ferramentas.Lanterna;
-import adventure.FimDeJogoException;
+// import adventure.FimDeJogoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,15 +39,15 @@ public class SalaEsquerda extends Sala {
         StringBuilder descricao = new StringBuilder();
         descricao.append("Voce esta na ").append(this.getNome()).append("\n");
         if (escuro) {
-            descricao.append("Esta escuro aqui e você não consegue ver nada");
-
+            descricao.append("Esta escuro aqui e você não consegue ver nada\n");
+            cont2++;
         } 
         else if (!escuro) {
             descricao.append("você verifica um teclado numérico, e uma porta mais a frente.\n");
             descricao.append("Você pensa em digitar alguns algarismo, para ver\n");
             descricao.append("se consegue destravar a porta a sua frente, entao você lembra\n");
             descricao.append("dos riscos. O que terá atrás daquela porta?\n");
-        
+            cont2++;
         }
         
         else if(senha == 1){
@@ -98,12 +98,13 @@ public class SalaEsquerda extends Sala {
         }
           
         else if (cont == true && cont2 == 1);{
-            descricao.append("Você então apaga sua lanterna e caminha para a saída, tropeçando em\n");
+            descricao.append("Você então guarda sua lanterna e caminha para a saída, tropeçando em\n");
             descricao.append("um JogoChaves! Mais sorte do que juízo... \n");
             JogoChaves jogoChaves = new JogoChaves();
             this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
 
         }
+       
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
@@ -170,6 +171,16 @@ public class SalaEsquerda extends Sala {
         
         else{return this.senha = 3;}
     }
-    Scanner in = new Scanner(System.in);
-
+    
+    @Override
+	public Sala sai(String sala) {
+		Sala aux = super.sai(sala);
+		if (aux != null) {
+			escuro = true;
+		}
+		return aux;
+	}
+    
+     Scanner in = new Scanner(System.in);
+     Scanner inn = new Scanner(System.in);
 }

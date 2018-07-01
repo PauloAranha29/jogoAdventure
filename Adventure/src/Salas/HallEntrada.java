@@ -42,6 +42,11 @@ public class HallEntrada extends Sala {
         return false;
     }
     
+     @Override
+    public boolean pega(String ferramenta) {
+        return false;
+    }
+    
     Scanner in = new Scanner(System.in);
 
 }
