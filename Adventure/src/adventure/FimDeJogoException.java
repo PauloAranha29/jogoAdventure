@@ -9,15 +9,7 @@ package adventure;
  *
  * @author Henrique
  */
-public class FimDeJogoException extends Exception {
-
-    public FimDeJogoException(String frase) {
-        
-        super(frase);
-    }
-
-    public FimDeJogoException() {
-        System.out.println("Fim de jogo");
-    }
-    
+public class FimDeJogoException extends RuntimeException {
+	public FimDeJogoException() {
+	}
 }

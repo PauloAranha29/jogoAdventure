@@ -9,7 +9,7 @@ import ClassesBasicas.Ferramenta;
 import ClassesBasicas.Sala;
 import Ferramentas.JogoChaves;
 import Ferramentas.Lanterna;
-//import adventure.FimDeJogoException;
+import adventure.FimDeJogoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,11 +66,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("que para você são indecifráveis, o abraça cada vez\n");
             descricao.append(" mais forte, por fim sufocando-o até a morte na \n");
             descricao.append("euforia do seu amor.\n");
-         //    try {
-         //       throw new FimDeJogoException();
-         //   } catch (FimDeJogoException ex) {
-        //        System.out.println("Fim de jogo");
-        //    }
+            throw new FimDeJogoException();
         }
         
           if(senha == 2){
@@ -82,13 +78,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("fitando-o com os seus lindos olhos verdes, cheios \n");
             descricao.append("de lágrimas. Vocês voltam para nave e decolam para\n");
             descricao.append(" casa, deixando para trás o terrível DalhiNinguemScapus.\n");
-          //     try {
-         //       throw new FimDeJogoException();
-        //    } catch (FimDeJogoException ex) {
-        //        System.out.println("Fim de jogo");
-        //        System.out.println("Vencedores não usam drogas");
-        //    }
-        
+            throw new FimDeJogoException();
         }
           
         if(senha == 3){
@@ -103,11 +93,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("\n");
             descricao.append("DalhiNinguemScapus!\n");
             descricao.append("\n");
-       //       try {
-      //          throw new FimDeJogoException();
-      //      } catch (FimDeJogoException ex) {
-     //           System.out.println("Fim de jogo");
-     //       }
+            throw new FimDeJogoException();
            
         }
           
