@@ -10,6 +10,7 @@ import ClassesBasicas.Sala;
 import Ferramentas.JogoChaves;
 import Ferramentas.Lanterna;
 import Ferramentas.PistolaLaser;
+import static Salas.SalaEsquerda.senha;
 // import adventure.FimDeJogoException;
 
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class SalaEsquerda extends Sala {
             
         }
         
-        else if(senha == 1){
+        if(!escuro && senha == 1){
             
             descricao.append("Você digita a senha 1234. A porta a sua frente abre \n");
             descricao.append(", e uma silhueta aparece a sua frente.Você não \n");
@@ -71,7 +72,7 @@ public class SalaEsquerda extends Sala {
            // throw new FimDeJogoException();
         }
         
-        else if(senha == 2){
+        if(!escuro && senha == 2){
               
             descricao.append(" Você digita a senha 5678 e a porta a frente se \n");
             descricao.append("abre, com a princesa Isthar a sua frente. Ela o \n");
@@ -83,7 +84,7 @@ public class SalaEsquerda extends Sala {
           //  throw new FimDeJogoException();
         }
           
-        else if(senha == 3){
+        if(!escuro && senha == 3){
               
             descricao.append("Você digita a senha, coma esperança de ter a  \n");
             descricao.append("princesa Isthar em seus braços novamente...\n");
@@ -170,6 +171,9 @@ public class SalaEsquerda extends Sala {
         
         else{SalaEsquerda.senha = 3;}
     }
+    
+    
+    
     
     @Override
 	public Sala sai(String sala) {
