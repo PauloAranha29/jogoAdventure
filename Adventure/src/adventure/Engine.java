@@ -42,18 +42,28 @@ public class Engine {
         //portas pro hall de entrada
         hallEntrada.getPortas().put(salaDireita.getNome(), salaDireita);
         hallEntrada.getPortas().put(salaEsquerda.getNome(), salaEsquerda);
+        
+        // portas pra salaEsquerda
+        salaEsquerda.getPortas().put(hallEntrada.getNome(), hallEntrada);
+        
         // portas pra salaDireita
         salaDireita.getPortas().put(subsolo.getNome(), subsolo);
         salaDireita.getPortas().put(hallEntrada.getNome(), hallEntrada);
-        // portas pra salaEsquerda
+        
+          //portas pro Subsolo
+        subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
+        subsolo.getPortas().put(salaDireita.getNome(), salaDireita);
+        
+         // portas pra salaIntermediaria
+        salaIntermediaria.getPortas().put(subsolo.getNome(), subsolo);
+        salaIntermediaria.getPortas().put(mesaninoHolografico.getNome(), mesaninoHolografico);
+        
+     
 
         // portas pro MesaninoHolografico
         mesaninoHolografico.getPortas().put(hallEntrada.getNome(), hallEntrada);
-        // portas pra salaIntermediaria
-        salaIntermediaria.getPortas().put(subsolo.getNome(), subsolo);
-        salaIntermediaria.getPortas().put(mesaninoHolografico.getNome(), mesaninoHolografico);
-        //portas pro Subsolo
-        subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
+       mesaninoHolografico.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
+      
         salaIncial = hallEntrada;
     }
 

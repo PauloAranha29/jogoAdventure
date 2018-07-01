@@ -31,7 +31,7 @@ public class SalaEsquerda extends Sala {
         escuro = true;
         cont = false;
         cont2 = 0;
-        senha = null;
+        senha = 0;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("Esta escuro aqui e você não consegue ver nada");
 
         } 
-        if (!escuro) {
+        else if (!escuro) {
             descricao.append("você verifica um teclado numérico, e uma porta mais a frente.\n");
             descricao.append("Você pensa em digitar alguns algarismo, para ver\n");
             descricao.append("se consegue destravar a porta a sua frente, entao você lembra\n");
@@ -50,7 +50,7 @@ public class SalaEsquerda extends Sala {
         
         }
         
-        if(senha == 1){
+        else if(senha == 1){
             
             descricao.append("Você digita a senha 1234. A porta a sua frente abre \n");
             descricao.append(", e uma silhueta aparece a sua frente.Você não \n");
@@ -66,10 +66,10 @@ public class SalaEsquerda extends Sala {
             descricao.append("que para você são indecifráveis, o abraça cada vez\n");
             descricao.append(" mais forte, por fim sufocando-o até a morte na \n");
             descricao.append("euforia do seu amor.\n");
-            throw new FimDeJogoException();
+           // throw new FimDeJogoException();
         }
         
-          if(senha == 2){
+        else if(senha == 2){
               
             descricao.append(" Você digita a senha 5678 e a porta a frente se \n");
             descricao.append("abre, com a princesa Isthar a sua frente. Ela o \n");
@@ -78,10 +78,10 @@ public class SalaEsquerda extends Sala {
             descricao.append("fitando-o com os seus lindos olhos verdes, cheios \n");
             descricao.append("de lágrimas. Vocês voltam para nave e decolam para\n");
             descricao.append(" casa, deixando para trás o terrível DalhiNinguemScapus.\n");
-            throw new FimDeJogoException();
+          //  throw new FimDeJogoException();
         }
           
-        if(senha == 3){
+        else if(senha == 3){
               
             descricao.append("Você digita a senha, coma esperança de ter a  \n");
             descricao.append("princesa Isthar em seus braços novamente...\n");
@@ -93,11 +93,11 @@ public class SalaEsquerda extends Sala {
             descricao.append("\n");
             descricao.append("DalhiNinguemScapus!\n");
             descricao.append("\n");
-            throw new FimDeJogoException();
+           // throw new FimDeJogoException();
            
         }
           
-        if (cont == true && cont2 == 1);{
+        else if (cont == true && cont2 == 1);{
             descricao.append("Você então apaga sua lanterna e caminha para a saída, tropeçando em\n");
             descricao.append("um JogoChaves! Mais sorte do que juízo... \n");
             JogoChaves jogoChaves = new JogoChaves();
