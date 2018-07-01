@@ -9,6 +9,7 @@ import ClassesBasicas.Ferramenta;
 import ClassesBasicas.Sala;
 import Ferramentas.JogoChaves;
 import Ferramentas.Lanterna;
+import Ferramentas.PistolaLaser;
 // import adventure.FimDeJogoException;
 
 import java.util.ArrayList;
@@ -21,16 +22,17 @@ import java.util.Scanner;
  */
 public class SalaEsquerda extends Sala {
 
+  
+
     private boolean escuro;
-    private boolean cont;
-    private int cont2;
-    Integer senha;
+    static Integer senha;
 
     public SalaEsquerda() {
         super("SalaEsquerda");
+        
+      
+        
         escuro = true;
-        cont = false;
-        cont2 = 0;
         senha = 0;
     }
 
@@ -40,14 +42,14 @@ public class SalaEsquerda extends Sala {
         descricao.append("Voce esta na ").append(this.getNome()).append("\n");
         if (escuro) {
             descricao.append("Esta escuro aqui e você não consegue ver nada\n");
-            cont2++;
+           
         } 
         else if (!escuro) {
             descricao.append("você verifica um teclado numérico, e uma porta mais a frente.\n");
             descricao.append("Você pensa em digitar alguns algarismo, para ver\n");
             descricao.append("se consegue destravar a porta a sua frente, entao você lembra\n");
             descricao.append("dos riscos. O que terá atrás daquela porta?\n");
-            cont2++;
+            
         }
         
         else if(senha == 1){
@@ -97,13 +99,13 @@ public class SalaEsquerda extends Sala {
            
         }
           
-        else if (cont == true && cont2 == 1);{
-            descricao.append("Você então guarda sua lanterna e caminha para a saída, tropeçando em\n");
-            descricao.append("um JogoChaves! Mais sorte do que juízo... \n");
+        else if (!escuro);{
+           
+            descricao.append("Você acha um JogoChaves! Mais sorte do que juízo... \n");
             JogoChaves jogoChaves = new JogoChaves();
             this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
 
-        }
+       }
        
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
@@ -129,7 +131,6 @@ public class SalaEsquerda extends Sala {
         }
         if (f instanceof Lanterna) {
             escuro = false;
-            cont = false;
             return true;
         } else {
             return false;
@@ -144,8 +145,6 @@ public class SalaEsquerda extends Sala {
         }
         if (f instanceof Lanterna) {
             escuro = true;
-            cont = true;
-            cont2++;
             return true;
         } else {
             return false;
@@ -153,7 +152,7 @@ public class SalaEsquerda extends Sala {
     }
     
         // classe desenvolvida para esta sala
-    public Integer getSenhaFinal(Integer senha) {
+    public static void getSenhaFinal(Integer senha) {
         
         List<Integer> lista = new ArrayList<>();
         lista.add(senha);
@@ -163,13 +162,13 @@ public class SalaEsquerda extends Sala {
         }
        
         if (lista.contains(01234)) {
-            return this.senha = 1; 
+            SalaEsquerda.senha = 1; 
         }
         if (lista.contains(65789)) {
-            return this.senha =  2;
+            SalaEsquerda.senha =  2;
         }
         
-        else{return this.senha = 3;}
+        else{SalaEsquerda.senha = 3;}
     }
     
     @Override
@@ -182,5 +181,5 @@ public class SalaEsquerda extends Sala {
 	}
     
      Scanner in = new Scanner(System.in);
-     Scanner inn = new Scanner(System.in);
+    
 }

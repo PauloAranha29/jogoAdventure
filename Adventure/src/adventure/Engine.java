@@ -95,6 +95,13 @@ public class Engine {
                         System.out.println("Não é possível usar " + tokens[1] + " nesta sala");
                     }
                     break;
+                    
+                    case "DigitaSenha":
+                     System.out.println("Digite a senha:\n");   
+                     Integer senha = in.nextInt();;
+                      Salas.SalaEsquerda.getSenhaFinal(senha);
+                   
+                      break;
                 case "sai":
                     Sala novaSala = salaCorrente.sai(tokens[1]);
                     if (novaSala == null) {
