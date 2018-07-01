@@ -1,4 +1,4 @@
-package Adventure.src.adventure.ClassesBasicas;
+package ClassesBasicas;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

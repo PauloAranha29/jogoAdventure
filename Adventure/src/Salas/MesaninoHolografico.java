@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adventure.Salas;
+package Salas;
 
-import Adventure.src.adventure.ClassesBasicas.Ferramenta;
-import Adventure.src.adventure.ClassesBasicas.Sala;
-import Adventure.src.adventure.Ferramentas.JogoChaves;
-import adventure.ObjetosCriados.DisplayGigante;
+import ClassesBasicas.Ferramenta;
+import ClassesBasicas.Sala;
+import Ferramentas.JogoChaves;
+import ObjetosCriados.DisplayGigante;
 
 /**
  *

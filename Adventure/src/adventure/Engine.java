@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Adventure.src.adventure;
+package adventure;
 
-import Adventure.src.adventure.ClassesBasicas.Mochila;
-import Adventure.src.adventure.ClassesBasicas.Sala;
-import Adventure.src.adventure.Salas.SalaEsquerda;
-import Adventure.src.adventure.Salas.SalaIntermediaria;
-import Adventure.src.adventure.Salas.Subsolo;
-import adventure.Salas.HallEntrada;
-import adventure.Salas.MesaninoHolografico;
-import adventure.Salas.SalaDireita;
+import ClassesBasicas.Mochila;
+import ClassesBasicas.Sala;
+import Salas.SalaEsquerda;
+import Salas.SalaIntermediaria;
+import Salas.Subsolo;
+import Salas.HallEntrada;
+import Salas.MesaninoHolografico;
+import Salas.SalaDireita;
 
 import java.util.Scanner;
 

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adventure.Salas;
+package Salas;
 
-import Adventure.src.adventure.ClassesBasicas.Sala;
-import Adventure.src.adventure.Ferramentas.Lanterna;
-import Adventure.src.adventure.Ferramentas.PistolaLaser;
+import ClassesBasicas.Sala;
+import Ferramentas.Lanterna;
+import Ferramentas.PistolaLaser;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Adventure.src.adventure.ClassesBasicas;
+package ClassesBasicas;
 
 public class Ferramenta {
 	private String descricao;

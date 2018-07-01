@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adventure.ObjetosCriados;
+package ObjetosCriados;
 
-import Adventure.src.adventure.ClassesBasicas.Ferramenta;
-import Adventure.src.adventure.ClassesBasicas.Objeto;
-import Adventure.src.adventure.Ferramentas.JogoChaves;
+import ClassesBasicas.Ferramenta;
+import ClassesBasicas.Objeto;
+import Ferramentas.JogoChaves;
 
 /**
  *

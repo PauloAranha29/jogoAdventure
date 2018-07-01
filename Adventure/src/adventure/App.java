@@ -1,4 +1,4 @@
-package Adventure.src.adventure;
+package adventure;
 
 public class App {
     public static void main(String[] args) {

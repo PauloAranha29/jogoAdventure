@@ -1,6 +1,6 @@
-package Adventure.src.adventure.Ferramentas;
+package Ferramentas;
 
-import Adventure.src.adventure.ClassesBasicas.Ferramenta;
+import ClassesBasicas.Ferramenta;
 
 public class Lanterna extends Ferramenta {
 

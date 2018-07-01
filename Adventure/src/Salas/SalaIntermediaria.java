@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Adventure.src.adventure.Salas;
+package Salas;
 
-import Adventure.src.adventure.ClassesBasicas.Ferramenta;
-import Adventure.src.adventure.ClassesBasicas.Sala;
-import Adventure.src.adventure.Ferramentas.BombaNeutrons;
-import Adventure.src.adventure.FimDeJogoException;
+import ClassesBasicas.Ferramenta;
+import ClassesBasicas.Sala;
+import Ferramentas.BombaNeutrons;
+import adventure.FimDeJogoException;
 
 import java.util.Scanner;
 

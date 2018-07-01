@@ -1,4 +1,4 @@
-package Adventure.src.adventure.ClassesBasicas;
+package ClassesBasicas;
 
 public abstract class Objeto {
     private String descricaoAntesAcao;

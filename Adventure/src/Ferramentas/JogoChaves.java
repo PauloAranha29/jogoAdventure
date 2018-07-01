@@ -1,4 +1,4 @@
-package Adventure.src.adventure.Ferramentas;
+package Ferramentas;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,7 +6,7 @@ package Adventure.src.adventure.Ferramentas;
  * and open the template in the editor.
  */
 
-import Adventure.src.adventure.ClassesBasicas.Ferramenta;
+import ClassesBasicas.Ferramenta;
 
 /**
  *
