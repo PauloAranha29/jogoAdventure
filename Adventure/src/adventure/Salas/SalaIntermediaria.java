@@ -8,7 +8,7 @@ package Adventure.src.adventure.Salas;
 import Adventure.src.adventure.ClassesBasicas.Ferramenta;
 import Adventure.src.adventure.ClassesBasicas.Sala;
 import Adventure.src.adventure.Ferramentas.BombaNeutrons;
-import adventure.FimDeJogoException;
+import Adventure.src.adventure.FimDeJogoException;
 
 import java.util.Scanner;
 
