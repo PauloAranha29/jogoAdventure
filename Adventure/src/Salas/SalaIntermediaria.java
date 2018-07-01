@@ -8,7 +8,7 @@ package Salas;
 import ClassesBasicas.Ferramenta;
 import ClassesBasicas.Sala;
 import Ferramentas.BombaNeutrons;
-import adventure.FimDeJogoException;
+//import adventure.FimDeJogoException;
 
 import java.util.Scanner;
 
@@ -70,11 +70,11 @@ public class SalaIntermediaria extends Sala {
             descricao.append("não limpou os sapatos antes de entrar em casa, que você está fedendo\n");
             descricao.append("a cerveja Weissfuder,que é um inútil, etc, etc,etc. Então você morre,\n");
             descricao.append("feliz por ter escapado de semelhante destino.");
-            try {
-                throw new FimDeJogoException();
-            } catch (FimDeJogoException ex) {
-                System.out.println("Fim de jogo");
-            }
+       //     try {
+      //          throw new FimDeJogoException();
+     //       } catch (FimDeJogoException ex) {
+     //           System.out.println("Fim de jogo");
+     //       }
         }
 
         if (opcao == 2) {
@@ -86,11 +86,11 @@ public class SalaIntermediaria extends Sala {
             descricao.append("estrangula lentamente, até você perder a consciência e \n");
             descricao.append("morrer.Tsc,tsc,tsc, esperava um fim mais heróico para um capitão estelar!\n");
             descricao.append("um capitão estelar!");
-            try {
-                throw new FimDeJogoException();
-            } catch (FimDeJogoException ex) {
-                System.out.println("Fim de jogo");
-            }
+    //        try {
+    //            throw new FimDeJogoException();
+   //         } catch (FimDeJogoException ex) {
+   //             System.out.println("Fim de jogo");
+   //         }
         }
 
         if (opcao == 3) {

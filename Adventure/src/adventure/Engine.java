@@ -23,7 +23,7 @@ public class Engine {
     private Sala salaCorrente;
     private boolean fim;
 
-    public Engine(){
+    public  Engine(){
         in = new Scanner(System.in);
         mochila = new Mochila();
         criaLabirinto();
@@ -31,7 +31,7 @@ public class Engine {
         salaCorrente = salaIncial;
         fim = false;
     }
-    public void criaLabirinto(){
+    public  void criaLabirinto(){
         Sala hallEntrada = new HallEntrada();
         Sala mesaninoHolografico = new MesaninoHolografico();
         Sala salaDireita = new SalaDireita();
@@ -54,9 +54,10 @@ public class Engine {
         salaIntermediaria.getPortas().put(mesaninoHolografico.getNome(), mesaninoHolografico);
         //portas pro Subsolo
         subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
+        salaIncial = hallEntrada;
     }
 
-    public void joga(){
+    public  void joga(){
         while (!fim) {
             System.out.println("---------");
             System.out.println(salaCorrente.textoDescricao());
