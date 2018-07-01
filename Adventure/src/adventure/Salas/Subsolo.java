@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adventure.Salas;
+package Adventure.src.adventure.Salas;
 
 import Adventure.src.adventure.ClassesBasicas.Ferramenta;
 import Adventure.src.adventure.ClassesBasicas.Sala;

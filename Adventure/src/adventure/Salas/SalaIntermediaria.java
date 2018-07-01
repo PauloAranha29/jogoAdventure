@@ -3,19 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adventure.Salas;
+package Adventure.src.adventure.Salas;
 
-import adventure.FimDeJogoException;
 import Adventure.src.adventure.ClassesBasicas.Ferramenta;
 import Adventure.src.adventure.ClassesBasicas.Sala;
 import Adventure.src.adventure.Ferramentas.BombaNeutrons;
-import Adventure.src.adventure.Ferramentas.Lanterna;
-import Adventure.src.adventure.Ferramentas.PistolaLaser;
+import adventure.FimDeJogoException;
 
-import Adventure.src.adventure.ClassesBasicas.Sala;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
