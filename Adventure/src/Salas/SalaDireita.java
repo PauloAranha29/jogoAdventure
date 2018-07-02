@@ -16,7 +16,9 @@ import ObjetosCriados.ChaoMovel;
  * @author Henrique
  */
 public class SalaDireita extends Sala {
-    private Boolean portaAberta;
+
+    private static Boolean portaAberta;
+
     public SalaDireita() {
         super("SalaDireita");
         portaAberta = false;
@@ -34,6 +36,7 @@ public class SalaDireita extends Sala {
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
         return descricao.toString();
+
     }
 
     @Override
@@ -52,27 +55,18 @@ public class SalaDireita extends Sala {
         if (f == null || !(f instanceof JogoChaves)) {
             return false;
         }
-         if (f instanceof JogoChaves) { 
-           portaAberta = true;  
-           return true;  
+        if (f instanceof JogoChaves) {
+            portaAberta = true;
+            return true;
         } else {
             return false;
         }
     }
-    
-    public String proximaSala(){
-    
-       if(portaAberta == true){
-        StringBuilder descricao = new StringBuilder();
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
-        return descricao.toString();
-       
-       }
-       return "";
-    
+
+    public static boolean proximaSala() {
+
+        return portaAberta;
+
     }
-    
-    
-    
 
 }

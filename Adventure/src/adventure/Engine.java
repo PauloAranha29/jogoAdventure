@@ -47,8 +47,9 @@ public class Engine {
         salaEsquerda.getPortas().put(hallEntrada.getNome(), hallEntrada);
         
         // portas pra salaDireita
-        salaDireita.getPortas().put(subsolo.getNome(), subsolo);
-        salaDireita.getPortas().put(hallEntrada.getNome(), hallEntrada);
+          salaDireita.getPortas().put(hallEntrada.getNome(), hallEntrada);
+           if(Salas.SalaDireita.proximaSala() == true){
+             salaDireita.getPortas().put(subsolo.getNome(), subsolo);}
         
           //portas pro Subsolo
         subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);

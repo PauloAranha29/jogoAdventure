@@ -42,21 +42,19 @@ public class Subsolo extends Sala {
             descricao.append("porém você nota uma grande janela no alto da sala, que não pode ser alcançada. \n");
             descricao.append("A sua direita você se depara com um esqueleto de um humanóide gigante,\n");
             descricao.append("morto há tempos para sua felicidade.\n");
-            descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
-            descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-        } else if (!escuro && examinado) {
-
             descricao.append("Ao examiar o humanóide, você encontra uma \n");
             descricao.append("BombaNeutrons escondida. Olha aí a sorte te ajudando de novo...\n");
             BombaNeutrons bombaNeutrons = new BombaNeutrons();
             this.getFerramentas().put(bombaNeutrons.getDescricao(), bombaNeutrons);
-            
+        
         } else if (!escuro && esqueletoExplodido) {
             descricao.append("Você então usa a arma laser em direção ao esqueleto \n");
             descricao.append("transformando-o em uma pilha de ossos e \n");
             descricao.append("usando para subir e chegar até a janela.\n");
         }
-
+        
+        descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
+        descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
         return descricao.toString();
     }
@@ -75,7 +73,6 @@ public class Subsolo extends Sala {
         if (f instanceof PistolaLaser) {
 
             Esqueleto e = (Esqueleto) this.getObjetos().get("Monte de ossos");
-            e.usar(f);
             e.usar(f);
             esqueletoExplodido = true;
             return true;  //nosso herói sai do subsolo...                              
