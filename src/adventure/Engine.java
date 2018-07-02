@@ -48,6 +48,10 @@ public class Engine {
         hallEntrada.getPortas().put(salaDireita.getNome(), salaDireita);
         hallEntrada.getPortas().put(salaEsquerda.getNome(), salaEsquerda);
 
+        /////// TESTE
+        hallEntrada.getPortas().put(mesaninoHolografico.getNome(), mesaninoHolografico);
+        /////////////////
+
         // portas pra salaEsquerda
         salaEsquerda.getPortas().put(hallEntrada.getNome(), hallEntrada);
 

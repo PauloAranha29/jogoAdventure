@@ -22,11 +22,19 @@ public class Subsolo extends Sala {
     private boolean examinado;
     private boolean esqueletoExplodido;
 
+
+
     public Subsolo() {
         super("Subsolo","4");
         escuro = true;
         examinado = false;
         esqueletoExplodido = false;
+
+        Esqueleto esqueleto = new Esqueleto();
+        this.getObjetos().put("Esqueleto", esqueleto);
+
+        BombaNeutrons bombaNeutrons = new BombaNeutrons();
+        this.getFerramentas().put(bombaNeutrons.getDescricao(), bombaNeutrons);
     }
 
     @Override
@@ -37,17 +45,14 @@ public class Subsolo extends Sala {
         if (escuro) {
             descricao.append("O ambiente está completamente úmido e escuro, ");
             descricao.append("sem a menor possibilidade de enxergar nada. \n");
-        }  else if (!escuro && examinado) {
-
-            descricao.append("Ao examiar o humanóide, você encontra uma \n");
-            descricao.append("BombaNeutrons escondida. Olha aí a sorte te ajudando de novo...\n");
-            BombaNeutrons bombaNeutrons = new BombaNeutrons();
-            this.getFerramentas().put(bombaNeutrons.getDescricao(), bombaNeutrons);
             
         } else if (!escuro && esqueletoExplodido) {
+
             descricao.append("Você então usa a arma laser em direção ao esqueleto \n");
             descricao.append("transformando-o em uma pilha de ossos e \n");
             descricao.append("usando para subir e chegar até a janela.\n");
+
+
         } else if (!escuro) {
             descricao.append("Você acende sua lanterna e a sala se ilumina, revelando que não há portas,\n");
             descricao.append("porém você nota uma grande janela no alto da sala, que não pode ser alcançada. \n");
@@ -73,15 +78,13 @@ public class Subsolo extends Sala {
             return true;
         }
         //libera para nosso heroi passar de sala
-        if (f instanceof PistolaLaser) {
-
-            Esqueleto e = (Esqueleto) this.getObjetos().get("Monte de ossos");
-            e.usar(f);
+        if (f instanceof PistolaLaser && escuro == false) {
+            (this.getObjetos().get("Esqueleto")).setAcaoOk(true);
             esqueletoExplodido = true;
-            return true;  //nosso herói sai do subsolo...                              
-        } else {
-            return false;
+
+
         }
+        return false;
     }
 
     //método criado para esta classe

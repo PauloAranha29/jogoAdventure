@@ -22,9 +22,9 @@ public class SalaIntermediaria extends Sala {
     private Integer opcao;
 
     public SalaIntermediaria() {
-        super("SalaIntermediaria");
+        super("SalaIntermediaria","6");
         bombaJogada = false;
-        opcao = null;
+        opcao = 0;
     }
 
     @Override

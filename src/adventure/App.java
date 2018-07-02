@@ -48,6 +48,7 @@ public class App extends Application {
         images.add(new Image("file:telas/salaEsquerda.jpg"));
         images.add(new Image("file:telas/subsoloEscuro.jpg"));
         images.add(new Image("file:telas/subsolo.jpg"));
+        images.add(new Image("file:telas/salaIntermediaria.jpg"));
 
         imgView = new ImageView();
         imgView.setImage(images.get(0));

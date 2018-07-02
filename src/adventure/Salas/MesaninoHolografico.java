@@ -19,9 +19,12 @@ public class MesaninoHolografico extends Sala {
     private boolean displayConsertado;
 
     public MesaninoHolografico() {
-        super("MesaninoHolografico");
+        super("MesaninoHolografico","0");
 
         displayConsertado = false;
+
+        DisplayGigante display = new DisplayGigante();
+        this.getObjetos().put("Display", display);
     }
 
     @Override
@@ -30,11 +33,11 @@ public class MesaninoHolografico extends Sala {
         descricao.append("Voce esta no ").append(this.getNome()).append("\n");
         descricao.append("Ao entrar na sala, você verifica que não há nada na sala,\n");
         descricao.append("a não ser três botões grandes e uma tela enorme, do\n");
-        descricao.append("tamanho de 1/4 de 1/6 de 1/8 de um estádio de futebol");
+        descricao.append("tamanho de 1/4 de 1/6 de 1/8 de um estádio de futebol\n");
         descricao.append("que parecem estar estragados ou oxidados pelo tempo.\n");
         descricao.append("O que você faz?\n");
 
-        if (displayConsertado == true) {
+        if (displayConsertado) {
 
             descricao.append("Ao apertar os botões, uma imagem aparece na tela \n");
             descricao.append("dentre os vários caracteres estranhos que se formam,\n");
@@ -75,11 +78,14 @@ public class MesaninoHolografico extends Sala {
         if (f == null || !(f instanceof JogoChaves)) {
             return false;
         }
+        if (f instanceof JogoChaves) {
+            (this.getObjetos().get("Display")).setAcaoOk(true);
+            displayConsertado = true;
 
-        DisplayGigante dg = (DisplayGigante) this.getObjetos().get("123456");
-        dg.usar(f);
-        displayConsertado = true;
-        return true; // E nosso herói finalmente consegue a senha...
+
+        }
+
+        return false; // E nosso herói finalmente consegue a senha...
 
     }
 }
