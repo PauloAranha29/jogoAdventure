@@ -21,12 +21,13 @@ public class Subsolo extends Sala {
     private boolean escuro;
     private boolean examinado;
     private boolean esqueletoExplodido;
-
+    private static Boolean portaAberta;
     public Subsolo() {
         super("Subsolo");
         escuro = true;
         examinado = false;
         esqueletoExplodido = false;
+        portaAberta = false;
     }
 
     @Override
@@ -75,16 +76,20 @@ public class Subsolo extends Sala {
             Esqueleto e = (Esqueleto) this.getObjetos().get("Monte de ossos");
             e.usar(f);
             esqueletoExplodido = true;
-            return true;  //nosso herói sai do subsolo...                              
-        } else {
-            return false;
+            portaAberta = true;
+            return true;  //nosso herói sai do subsolo...
         }
+            return false;
+        
     }
+    
+     public static boolean proximaSala() {
 
-    //método criado para esta classe
-    public boolean examina() {
+        return portaAberta;
 
-        return examinado = true; // libera a BombaNeutrons
-    }
+}     
+
+    
+    
 
 }

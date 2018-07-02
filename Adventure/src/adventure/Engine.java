@@ -17,13 +17,14 @@ import Salas.SalaDireita;
 import java.util.Scanner;
 
 public class Engine {
+
     private Scanner in;
     private Sala salaIncial;
     private Mochila mochila;
     private Sala salaCorrente;
     private boolean fim;
 
-    public  Engine(){
+    public Engine() {
         in = new Scanner(System.in);
         mochila = new Mochila();
         criaLabirinto();
@@ -31,7 +32,8 @@ public class Engine {
         salaCorrente = salaIncial;
         fim = false;
     }
-    public  void criaLabirinto(){
+
+    public void criaLabirinto() {
         Sala hallEntrada = new HallEntrada();
         Sala mesaninoHolografico = new MesaninoHolografico();
         Sala salaDireita = new SalaDireita();
@@ -42,33 +44,34 @@ public class Engine {
         //portas pro hall de entrada
         hallEntrada.getPortas().put(salaDireita.getNome(), salaDireita);
         hallEntrada.getPortas().put(salaEsquerda.getNome(), salaEsquerda);
-        
+
         // portas pra salaEsquerda
         salaEsquerda.getPortas().put(hallEntrada.getNome(), hallEntrada);
-        
+
         // portas pra salaDireita
-          salaDireita.getPortas().put(hallEntrada.getNome(), hallEntrada);
-           if(Salas.SalaDireita.proximaSala() == true){
-             salaDireita.getPortas().put(subsolo.getNome(), subsolo);}
-        
-          //portas pro Subsolo
-        subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
+        salaDireita.getPortas().put(hallEntrada.getNome(), hallEntrada);
+        if (Salas.SalaDireita.proximaSala() == true) {
+            salaDireita.getPortas().put(subsolo.getNome(), subsolo);
+        }
+
+        //portas pro Subsolo
         subsolo.getPortas().put(salaDireita.getNome(), salaDireita);
-        
-         // portas pra salaIntermediaria
+        if (Salas.Subsolo.proximaSala() == true) {
+            subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
+        }
+
+        // portas pra salaIntermediaria
         salaIntermediaria.getPortas().put(subsolo.getNome(), subsolo);
         salaIntermediaria.getPortas().put(mesaninoHolografico.getNome(), mesaninoHolografico);
-        
-     
 
         // portas pro MesaninoHolografico
         mesaninoHolografico.getPortas().put(hallEntrada.getNome(), hallEntrada);
-       mesaninoHolografico.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
-      
+        mesaninoHolografico.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
+
         salaIncial = hallEntrada;
     }
 
-    public  void joga(){
+    public void joga() {
         while (!fim) {
             System.out.println("---------");
             System.out.println(salaCorrente.textoDescricao());
@@ -96,13 +99,16 @@ public class Engine {
                         System.out.println("Não é possível usar " + tokens[1] + " nesta sala");
                     }
                     break;
-                    
-                    case "DigitaSenha":
-                     if(Salas.SalaEsquerda.getEscuro() == true){break;}   
-                     else{System.out.println("Digite a senha:\n");   
-                     String senha = in.nextLine();
-                     Salas.SalaEsquerda.getSenhaFinal(senha);
-                      break;}
+
+                case "DigitaSenha":
+                    if (Salas.SalaEsquerda.getEscuro() == true) {
+                        break;
+                    } else {
+                        System.out.println("Digite a senha:\n");
+                        String senha = in.nextLine();
+                        Salas.SalaEsquerda.getSenhaFinal(senha);
+                        break;
+                    }
                 case "sai":
                     Sala novaSala = salaCorrente.sai(tokens[1]);
                     if (novaSala == null) {
