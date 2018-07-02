@@ -110,8 +110,7 @@ public class Engine {
                         break;
                     } else {
                         System.out.println("Digite a opçao:\n");
-                        String opcao1 = in.nextLine();
-                        String opcao = in.nextLine();
+                        String opcao = in.next();
                         Salas.SalaIntermediaria.getOpcao(opcao);
                         break;
                     }

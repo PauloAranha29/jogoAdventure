@@ -11,7 +11,7 @@ import Ferramentas.JogoChaves;
 import Ferramentas.Lanterna;
 import Ferramentas.PistolaLaser;
 import static Salas.SalaEsquerda.senha;
-// import adventure.FimDeJogoException;
+ import adventure.FimDeJogoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +73,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("euforia do seu amor.\n");
             descricao.append("\n");
             descricao.append("Fim de Jogo\n\n");
-            // throw new FimDeJogoException();
+             throw new FimDeJogoException();
         }
 
         if (!escuro && senha == 2) {
@@ -88,7 +88,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("\n");
             descricao.append("Fim de Jogo\n\n");
           
-            //  throw new FimDeJogoException();
+              throw new FimDeJogoException();
         }
 
         if (!escuro && senha == 3) {
@@ -105,7 +105,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("\n");
             descricao.append("Fim de Jogo\n\n");
           
-            // throw new FimDeJogoException();
+             throw new FimDeJogoException();
 
         }
 
@@ -140,19 +140,7 @@ public class SalaEsquerda extends Sala {
     }
     // método criado somente para essa classe
 
-    public boolean guarda(String ferramenta) { //guarda lanterna e libera JogoChaves
-        Ferramenta f = this.getMochila().usar(ferramenta);
-        if (f == null) {
-            return false;
-        }
-        if (f instanceof Lanterna) {
-            escuro = true;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
+  
     // classe desenvolvida para esta sala
     public static void getSenhaFinal(String senha) {
 
