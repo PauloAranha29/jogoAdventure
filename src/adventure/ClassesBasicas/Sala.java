@@ -90,7 +90,7 @@ public abstract class Sala {
 
 	public abstract String textoDescricao();
 
-	public abstract boolean examina();
+	public abstract boolean DigitaSenha(Integer senha);
 
 	public abstract boolean usa(String ferramenta);
 }

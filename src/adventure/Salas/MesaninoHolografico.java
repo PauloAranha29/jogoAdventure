@@ -19,7 +19,7 @@ public class MesaninoHolografico extends Sala {
     private boolean displayConsertado;
 
     public MesaninoHolografico() {
-        super("MesaninoHolografico","0");
+        super("MesaninoHolografico","7");
 
         displayConsertado = false;
 
@@ -58,7 +58,7 @@ public class MesaninoHolografico extends Sala {
     }
 
     @Override
-    public boolean examina() {
+    public boolean DigitaSenha(Integer senha) {
         return false;
     }
 
@@ -81,6 +81,7 @@ public class MesaninoHolografico extends Sala {
         if (f instanceof JogoChaves) {
             (this.getObjetos().get("Display")).setAcaoOk(true);
             displayConsertado = true;
+            setRepVisual("8");
 
 
         }

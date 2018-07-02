@@ -89,7 +89,7 @@ public class Subsolo extends Sala {
 
     //método criado para esta classe
     @Override
-    public boolean examina() {
+    public boolean DigitaSenha(Integer senha) {
         examinado = true;
         return examinado; // libera a BombaNeutrons
     }

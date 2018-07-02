@@ -16,7 +16,7 @@ import adventure.Ferramentas.JogoChaves;
 public class DisplayGigante extends Objeto {
 
     public DisplayGigante() {
-        super("Display apagado", "123456");
+        super("Display apagado", "Display Funcionando");
     }
 
     @Override

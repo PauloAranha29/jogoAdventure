@@ -110,7 +110,7 @@ public class SalaIntermediaria extends Sala {
     }
 
     @Override
-    public boolean examina() {
+    public boolean DigitaSenha(Integer senha) {
         return false;
     }
 

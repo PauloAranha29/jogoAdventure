@@ -49,7 +49,7 @@ public class Engine {
         hallEntrada.getPortas().put(salaEsquerda.getNome(), salaEsquerda);
 
         /////// TESTE
-        hallEntrada.getPortas().put(mesaninoHolografico.getNome(), mesaninoHolografico);
+        //hallEntrada.getPortas().put(mesaninoHolografico.getNome(), mesaninoHolografico);
         /////////////////
 
         // portas pra salaEsquerda
@@ -91,8 +91,10 @@ public class Engine {
                         janP.exibeTexto("Objeto " + tokens[1] + " não encontrado.\n");
                     }
                     break;
-                case "examina":
-                    salaCorrente.examina();
+                case "DigitaSenha":
+                    salaCorrente.DigitaSenha(Integer.parseInt(tokens[1]));
+                    janP.exibeTexto("\n"+salaCorrente.textoDescricao()+"\n");
+                    janP.setImagem(Integer.parseInt(salaCorrente.getRepVisual()));
 
                     break;
                 case "inventario":
@@ -122,11 +124,6 @@ public class Engine {
                         janP.exibeTexto("\n"+salaCorrente.textoDescricao()+"\n");
                         janP.setImagem(Integer.parseInt(salaCorrente.getRepVisual()));
                     }
-                    break;
-                case "DigitaSenha":
-                    janP.exibeTexto("Digite a senha:\n");
-                    Integer senha = in.nextInt();;
-                    SalaEsquerda.getSenhaFinal(senha);
                     break;
                 case "start":
                     janP.exibeTexto("\n"+salaCorrente.textoDescricao()+"\n");
