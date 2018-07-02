@@ -15,9 +15,13 @@ import adventure.ObjetosCriados.ChaoMovel;
  * @author Henrique
  */
 public class SalaDireita extends Sala {
+    private static Boolean portaAberta;
 
     public SalaDireita() {
         super("SalaDireita","1");
+        portaAberta = false;
+        ChaoMovel esqueleto = new ChaoMovel();
+        this.getObjetos().put("ChaoMovel", esqueleto);
     }
 
     @Override
@@ -26,11 +30,23 @@ public class SalaDireita extends Sala {
         descricao.append("Voce esta no ").append(this.getNome()).append("\n");
         descricao.append("você se encontra em uma sala bem iluminada, porém completamente vazia.\n");
         descricao.append(" No chão há uma espécie de controle com uma grande botão vermelho escrito\n");
-        descricao.append("“Não aperte, sua besta” no centro que parece estar quebrado...\n");
+        descricao.append("“Não aperte” no centro que parece estar quebrado...\n");
         descricao.append("O que você faz?\n");
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+        if (portaAberta == true) {
+            descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+            descricao.append("Comandos: [sai ***]");
+            descricao.append("\n\n");
+            descricao.append(" A porta do chão se abre sob seus pés, e você vê uma pequena passagem abaixo\n");
+
+            return descricao.toString();
+        }else{
+
+            descricao.append("Portas: [HallEntrada]");
+            descricao.append("\nComandos: [usa ***, sai ***]");
+        }
+
         return descricao.toString();
     }
 
@@ -55,9 +71,25 @@ public class SalaDireita extends Sala {
         if (f == null || !(f instanceof JogoChaves)) {
             return false;
         }
-        ChaoMovel cm = (ChaoMovel) this.getObjetos().get("Chão Aberto");
-        cm.usar(f);
-        return true; // E nosso herói cai no subsolo...
+        if (f instanceof JogoChaves) {
+            (this.getObjetos().get("ChaoMovel")).setAcaoOk(true);
+            portaAberta = true;
+
+            setRepVisual("12");
+            return true;
+        } else {
+            return false;
+        }
+    }
+    @Override
+    public Sala sai(String sala) {
+        Sala aux = super.sai(sala);
+        if (aux != null) {
+            if(portaAberta) {
+                setRepVisual("12");
+            }
+        }
+        return aux;
     }
 
 }

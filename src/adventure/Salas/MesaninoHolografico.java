@@ -15,7 +15,6 @@ import adventure.ObjetosCriados.DisplayGigante;
  * @author Henrique
  */
 public class MesaninoHolografico extends Sala {
-
     private boolean displayConsertado;
 
     public MesaninoHolografico() {
@@ -39,7 +38,7 @@ public class MesaninoHolografico extends Sala {
 
         if (displayConsertado) {
 
-            descricao.append("Ao apertar os botões, uma imagem aparece na tela \n");
+            descricao.append("\n\nAo apertar os botões, uma imagem aparece na tela \n");
             descricao.append("dentre os vários caracteres estranhos que se formam,\n");
             descricao.append(" você consegue identificar dois códigos:\n");
             descricao.append("\n");
@@ -51,9 +50,10 @@ public class MesaninoHolografico extends Sala {
             // a senhas
         }
 
-        descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
+        descricao.append("\nObjetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+        descricao.append("Comandos: [usa ***, sai ***]");
         return descricao.toString();
     }
 

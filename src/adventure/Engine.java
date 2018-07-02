@@ -56,8 +56,8 @@ public class Engine {
         salaEsquerda.getPortas().put(hallEntrada.getNome(), hallEntrada);
 
         // portas pra salaDireita
-        salaDireita.getPortas().put(subsolo.getNome(), subsolo);
         salaDireita.getPortas().put(hallEntrada.getNome(), hallEntrada);
+        salaDireita.getPortas().put(subsolo.getNome(), subsolo);
 
         //portas pro Subsolo
         subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
@@ -86,9 +86,9 @@ public class Engine {
                     break;
                 case "pega":
                     if (salaCorrente.pega(tokens[1])) {
-                        janP.exibeTexto("Ok! " + tokens[1] + " na mochila!\n");
+                        janP.exibeTexto("\nOk! " + tokens[1] + " na mochila!\n");
                     } else {
-                        janP.exibeTexto("Objeto " + tokens[1] + " não encontrado.\n");
+                        janP.exibeTexto("\nObjeto " + tokens[1] + " não encontrado.\n");
                     }
                     break;
                 case "DigitaSenha":
@@ -97,15 +97,21 @@ public class Engine {
                     janP.setImagem(Integer.parseInt(salaCorrente.getRepVisual()));
 
                     break;
+                case "DigitaOpcao":
+                    salaCorrente.DigitaOpcao(Integer.parseInt(tokens[1]));
+                    janP.exibeTexto("\n"+salaCorrente.textoDescricao()+"\n");
+                    janP.setImagem(Integer.parseInt(salaCorrente.getRepVisual()));
+
+                    break;
                 case "inventario":
-                    janP.exibeTexto("Conteudo da mochila: " + mochila.inventario()+"\n");
+                    janP.exibeTexto("\nConteudo da mochila: " + mochila.inventario()+"\n");
                     break;
                 case "usa":
                     try {
                         if (salaCorrente.usa(tokens[1])) {
-                            janP.exibeTexto("Feito !!");
+                            janP.exibeTexto("\nFeito !!");
                         } else {
-                            janP.exibeTexto("Não é possível usar " + tokens[1] + " nesta sala");
+                            janP.exibeTexto("\nNão é possível usar " + tokens[1] + " nesta sala");
                         }
                     } catch (FimDeJogoException e) {
                         fim = true;
@@ -117,7 +123,7 @@ public class Engine {
                 case "sai":
                     Sala novaSala = salaCorrente.sai(tokens[1]);
                     if (novaSala == null) {
-                        janP.exibeTexto("Sala desconhecida ...\n");
+                        janP.exibeTexto("\nSala desconhecida ...\n");
                     } else {
                         novaSala.entra(mochila);
                         salaCorrente = novaSala;
@@ -130,7 +136,7 @@ public class Engine {
                     janP.setImagem(Integer.parseInt(salaCorrente.getRepVisual()));
                     break;
                 default:
-                    janP.exibeTexto("Comando desconhecido: " + tokens[0]);
+                    janP.exibeTexto("\nComando desconhecido: " + tokens[0]);
                     break;
             }
 

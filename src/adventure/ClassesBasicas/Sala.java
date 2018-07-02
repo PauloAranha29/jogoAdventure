@@ -87,6 +87,10 @@ public abstract class Sala {
 	public Sala sai(String porta) {
 		return portas.get(porta);
 	}
+	public boolean DigitaOpcao(Integer opcao) {
+		return false;
+
+	}
 
 	public abstract String textoDescricao();
 

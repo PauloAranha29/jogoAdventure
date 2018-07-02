@@ -35,6 +35,7 @@ public class HallEntrada extends Sala {
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+        descricao.append("Comandos: [pega ***, sai ***]");
         return descricao.toString();
     }
 

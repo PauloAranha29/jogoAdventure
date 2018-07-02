@@ -29,9 +29,10 @@ public class SalaEsquerda extends Sala {
 
     public SalaEsquerda() {
         super("SalaEsquerda","2");
-
         escuro = true;
         senha2 = 0;
+        JogoChaves jogoChaves = new JogoChaves();
+        this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
     }
 
     @Override
@@ -43,9 +44,10 @@ public class SalaEsquerda extends Sala {
 
         }
 
-        else if (!escuro && senha2 == 1) {
+        else if (!escuro && senha2 == 2) {
+            fimDeJogo();
 
-            descricao.append("Você digita a senha 1234. A porta a sua frente abre \n");
+            descricao.append("\nVocê digita a senha 1234. A porta a sua frente abre \n");
             descricao.append(", e uma silhueta aparece a sua frente.Você não \n");
             descricao.append("consegue identificar devido a forte luz atrás de você, \n");
             descricao.append("mas claramente é uma silhueta feminina. Ela se  \n");
@@ -62,9 +64,10 @@ public class SalaEsquerda extends Sala {
             // throw new FimDeJogoException();
         }
 
-        else if (!escuro && senha2 == 2) {
+        else if (!escuro && senha2 == 1) {
+            fimDeJogo();
 
-            descricao.append(" Você digita a senha 5678 e a porta a frente se \n");
+            descricao.append("\nVocê digita a senha 5678 e a porta a frente se \n");
             descricao.append("abre, com a princesa Isthar a sua frente. Ela o \n");
             descricao.append("reconhece imediatamente e corre aos seus braços, \n");
             descricao.append("envolvendo-o com o seu corpo pequeno e perfumado, \n");
@@ -75,13 +78,14 @@ public class SalaEsquerda extends Sala {
         }
 
         else if (!escuro && senha2 == 3) {
+            fimDeJogo();
 
-            descricao.append("Você digita a senha, coma esperança de ter a  \n");
+            descricao.append("\nVocê digita a senha, com a esperança de ter a  \n");
             descricao.append("princesa Isthar em seus braços novamente...\n");
             descricao.append("mas algo dá errado! Sirenes começam a tocar, e\n");
-            descricao.append("ntes que você consiga reagir, já está cercado por\n");
+            descricao.append("antes que você consiga reagir, já está cercado por\n");
             descricao.append("quatro enormes gigantes, que rapidamente o\n");
-            descricao.append("imobilizam. Você acaa de se tornar mais um\n");
+            descricao.append("imobilizam. Você acaba de se tornar mais um\n");
             descricao.append("prisioneiro do terrível...\n");
             descricao.append("\n");
             descricao.append("DalhiNinguemScapus!\n");
@@ -89,19 +93,19 @@ public class SalaEsquerda extends Sala {
             // throw new FimDeJogoException();
 
         }else if (!escuro) {
-            descricao.append("você verifica um teclado numérico, e uma porta mais a frente.\n");
+            descricao.append("\nVocê verifica um teclado numérico, e uma porta mais a frente.\n");
             descricao.append("Você pensa em digitar alguns algarismo, para ver\n");
             descricao.append("se consegue destravar a porta a sua frente, entao você lembra\n");
             descricao.append("dos riscos. O que terá atrás daquela porta?\n");
             descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
-            JogoChaves jogoChaves = new JogoChaves();
-            this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
+            descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
+            descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
+            descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+            descricao.append("Comandos: [DigitaSenha ***, pega ***, sai ***]");
 
         }
 
-        descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
-        descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+
         return descricao.toString();
     }
 
@@ -109,15 +113,16 @@ public class SalaEsquerda extends Sala {
     public boolean DigitaSenha(Integer senha) {
         if(senha == 1234) {
             senha2 = 2;
-            setRepVisual("9");
+            setRepVisual("11");
             //fimDeJogo();
         }
         else if (senha == 5678){
 
-            setRepVisual("11");
+            setRepVisual("9");
             senha2 = 1;
         }
         else {
+            senha2 = 3;
             setRepVisual("10");
             //senhaErrada();
 
@@ -125,20 +130,12 @@ public class SalaEsquerda extends Sala {
         return true;
 
     }
-    private void senhaErrada() {
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Senha Errada");
-        alert.setHeaderText("Senha errada");
-        alert.setContentText("Tenha cuidado, pode gerar um efeito inesperado");
-        alert.showAndWait();
-    }
     private void fimDeJogo() {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Fim de jogo !!");
-        alert.setHeaderText("Parabéns !!");
-        alert.setContentText("Você conseguiu abrir o cofre !!\nFIM DE JOGO");
+        alert.setHeaderText("Fim de Jogo");
+        alert.setContentText("Você chegou ao final do jogo!");
         alert.showAndWait();
     }
     @Override
@@ -180,31 +177,12 @@ public class SalaEsquerda extends Sala {
         }
     }
 
-    // classe desenvolvida para esta sala
-    public static void getSenhaFinal(Integer senha) {
-
-        List<Integer> lista = new ArrayList<>();
-        lista.add(senha);
-
-        if (lista.isEmpty()) {
-            throw new IllegalArgumentException("opção inválida");
-        }
-
-        if (lista.contains(01234)) {
-            SalaEsquerda.senha2 = 1;
-        }
-        if (lista.contains(65789)) {
-            SalaEsquerda.senha2 = 2;
-        } else {
-            SalaEsquerda.senha2 = 3;
-        }
-    }
-
     @Override
     public Sala sai(String sala) {
         Sala aux = super.sai(sala);
         if (aux != null) {
             escuro = true;
+            setRepVisual("2");
         }
         return aux;
     }

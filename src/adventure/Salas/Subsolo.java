@@ -23,7 +23,6 @@ public class Subsolo extends Sala {
     private boolean esqueletoExplodido;
 
 
-
     public Subsolo() {
         super("Subsolo","4");
         escuro = true;
@@ -45,12 +44,17 @@ public class Subsolo extends Sala {
         if (escuro) {
             descricao.append("O ambiente está completamente úmido e escuro, ");
             descricao.append("sem a menor possibilidade de enxergar nada. \n");
+            descricao.append("Portas: [SalaDireita]");
+            descricao.append("\nComandos: [usa ***, sai ***]");
+
 
         } else if (!escuro && esqueletoExplodido) {
 
             descricao.append("Você então usa a arma laser em direção ao esqueleto \n");
             descricao.append("transformando-o em uma pilha de ossos e \n");
             descricao.append("usando para subir e chegar até a janela.\n");
+            descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+            descricao.append("Comandos: [pega ***, sai ***]");
 
 
         } else if (!escuro) {
@@ -60,9 +64,11 @@ public class Subsolo extends Sala {
             descricao.append("morto há tempos para sua felicidade.\n");
             descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
             descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
+            descricao.append("Portas: [SalaDireita]");
+            descricao.append("\nComandos: [pega ***, usa ***, sai ***]");
         }
 
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+
         return descricao.toString();
     }
 
@@ -81,6 +87,8 @@ public class Subsolo extends Sala {
         if (f instanceof PistolaLaser && escuro == false) {
             (this.getObjetos().get("Esqueleto")).setAcaoOk(true);
             esqueletoExplodido = true;
+            setRepVisual("13");
+
 
 
         }
@@ -92,6 +100,17 @@ public class Subsolo extends Sala {
     public boolean DigitaSenha(Integer senha) {
         examinado = true;
         return examinado; // libera a BombaNeutrons
+    }
+
+    @Override
+    public Sala sai(String sala) {
+        Sala aux = super.sai(sala);
+        if (aux != null) {
+            if(esqueletoExplodido) {
+                setRepVisual("13");
+            }
+        }
+        return aux;
     }
 
 }

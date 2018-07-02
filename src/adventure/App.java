@@ -1,5 +1,9 @@
 package adventure;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+
 public class App extends Application {
     private Stage primaryStage;
     private Scene cenaPrincipal;
@@ -29,7 +35,14 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        String separator;
+
         this.primaryStage = primaryStage;
+        if (System.getProperty("os.name").startsWith("Win")) {
+            separator = "\\";
+        } else {
+            separator = "/";
+        }
 
         engine = new Engine(this);
 
@@ -42,18 +55,26 @@ public class App extends Application {
 
         images = new ArrayList<>();
 
-        images.add(new Image("file:telas/hall.jpg"));
-        images.add(new Image("file:telas/salaDireita.jpg"));
-        images.add(new Image("file:telas/salaEsquerdaEscuro.jpg"));
-        images.add(new Image("file:telas/salaEsquerda.jpg"));
-        images.add(new Image("file:telas/subsoloEscuro.jpg"));
-        images.add(new Image("file:telas/subsolo.jpg"));
-        images.add(new Image("file:telas/salaIntermediaria.jpg"));
-        images.add(new Image("file:telas/mesanino.jpg"));
-        images.add(new Image("file:telas/mesaninoOn.jpg"));
-        images.add(new Image("file:telas/fimDeJogoFeliz.jpg"));
-        images.add(new Image("file:telas/fimDeJogoTriste.jpg"));
-        images.add(new Image("file:telas/fimDeJogoSeboia.jpg"));
+
+        images.add(new Image(getClass().getResource(separator+"hall.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaDireita.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaEsquerdaEscuro.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaEsquerda.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"subsoloEscuro.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"subsolo.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaIntermediaria.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"mesanino.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"mesaninoOn.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"fimDeJogoFeliz.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"fimDeJogoTriste.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"fimDeJogoSeboia.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaDireitaOn.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"subsoloOn.jpg").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaIntermediariaOn.png").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaIntermediariaMorto.png").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaIntermediariaPescoco.png").toExternalForm()));
+        images.add(new Image(getClass().getResource(separator+"salaIntermediariaAberta.png").toExternalForm()));
+
 
         imgView = new ImageView();
         imgView.setImage(images.get(0));
