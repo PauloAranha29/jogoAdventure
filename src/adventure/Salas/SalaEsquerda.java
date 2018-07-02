@@ -12,7 +12,7 @@ import adventure.Ferramentas.PistolaLaser;
 import javafx.scene.control.Alert;
 
 import static adventure.Salas.SalaEsquerda.senha2;
-// import adventure.FimDeJogoException;
+import adventure.FimDeJogoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,6 +113,8 @@ public class SalaEsquerda extends Sala {
             //fimDeJogo();
         }
         else if (senha == 5678){
+
+            setRepVisual("11");
             senha2 = 1;
         }
         else {

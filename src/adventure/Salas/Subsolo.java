@@ -45,7 +45,7 @@ public class Subsolo extends Sala {
         if (escuro) {
             descricao.append("O ambiente está completamente úmido e escuro, ");
             descricao.append("sem a menor possibilidade de enxergar nada. \n");
-            
+
         } else if (!escuro && esqueletoExplodido) {
 
             descricao.append("Você então usa a arma laser em direção ao esqueleto \n");

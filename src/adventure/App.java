@@ -53,6 +53,7 @@ public class App extends Application {
         images.add(new Image("file:telas/mesaninoOn.jpg"));
         images.add(new Image("file:telas/fimDeJogoFeliz.jpg"));
         images.add(new Image("file:telas/fimDeJogoTriste.jpg"));
+        images.add(new Image("file:telas/fimDeJogoSeboia.jpg"));
 
         imgView = new ImageView();
         imgView.setImage(images.get(0));

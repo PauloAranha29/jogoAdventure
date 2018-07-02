@@ -43,9 +43,9 @@ public class MesaninoHolografico extends Sala {
             descricao.append("dentre os vários caracteres estranhos que se formam,\n");
             descricao.append(" você consegue identificar dois códigos:\n");
             descricao.append("\n");
-            descricao.append("01234\n");
+            descricao.append("1234\n");
             descricao.append("\n");
-            descricao.append("56789\n");
+            descricao.append("5678\n");
             descricao.append("\n");//Aqui nosso herói deve volar com as senhas
             //Para o Hall de entrada, porta de esquerda  e tentar a sorte com
             // a senhas
