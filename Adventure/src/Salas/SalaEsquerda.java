@@ -64,14 +64,14 @@ public class SalaEsquerda extends Sala {
             descricao.append(", e uma silhueta aparece a sua frente.Você não \n");
             descricao.append("consegue identificar devido a forte luz atrás de você, \n");
             descricao.append("mas claramente é uma silhueta feminina. Ela se  \n");
-            descricao.append("aproxima de você e lhe abraça, mas neste momento\n");
+            descricao.append("aproxima de você e lhe abraça, mas neste momento \n");
             descricao.append("você nota algo errado: quarto braços envolvem você, \n");
-            descricao.append(" e uma carantonha de um olho só o fita.\n");
+            descricao.append(" e uma carantonha de um olho só o fita. \n");
             descricao.append(". Você então reconhece a princesa Sebóia, do  \n");
-            descricao.append("planeta Pegajosus.Você tenta se livrar dos tentáculos,\n");
+            descricao.append("planeta Pegajosus.Você tenta se livrar dos tentáculos, \n");
             descricao.append(" mas a princesa, na euforia do seu amor e  \n");
-            descricao.append("pronunciando palavras de agradecimentos\n");
-            descricao.append("que para você são indecifráveis, o abraça cada vez\n");
+            descricao.append("pronunciando palavras de agradecimentos \n");
+            descricao.append("que para você são indecifráveis, o abraça cada vez \n");
             descricao.append(" mais forte, por fim sufocando-o até a morte na \n");
             descricao.append("euforia do seu amor.\n");
             descricao.append("\n");
@@ -86,7 +86,7 @@ public class SalaEsquerda extends Sala {
             descricao.append("reconhece imediatamente e corre aos seus braços, \n");
             descricao.append("envolvendo-o com o seu corpo pequeno e perfumado, \n");
             descricao.append("fitando-o com os seus lindos olhos verdes, cheios \n");
-            descricao.append("de lágrimas. Vocês voltam para nave e decolam para\n");
+            descricao.append("de lágrimas. Vocês voltam para nave e decolam para \n");
             descricao.append(" casa, deixando para trás o terrível DalhiNinguemScapus.\n");
             //  throw new FimDeJogoException();
         }
@@ -95,10 +95,10 @@ public class SalaEsquerda extends Sala {
 
             descricao.append("Você digita a senha, coma esperança de ter a \n");
             descricao.append("princesa Isthar em seus braços novamente...\n");
-            descricao.append("mas algo dá errado! Sirenes começam a tocar, e\n");
-            descricao.append("antes que você consiga reagir, já está cercado por\n");
-            descricao.append("quatro enormes gigantes, que rapidamente o\n");
-            descricao.append("imobilizam. Você acaba de se tornar mais um\n");
+            descricao.append("mas algo dá errado! Sirenes começam a tocar, e \n");
+            descricao.append("antes que você consiga reagir, já está cercado por \n");
+            descricao.append("quatro enormes gigantes, que rapidamente o \n");
+            descricao.append("imobilizam. Você acaba de se tornar mais um \n");
             descricao.append("prisioneiro do terrível...\n");
             descricao.append("\n");
             descricao.append("DalhiNinguemScapus!\n");
