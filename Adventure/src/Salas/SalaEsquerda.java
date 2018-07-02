@@ -48,19 +48,16 @@ public class SalaEsquerda extends Sala {
             descricao.append("você verifica um teclado numérico, e uma porta mais a frente.\n");
             descricao.append("Você pensa em digitar alguns algarismo, para ver\n");
             descricao.append("se consegue destravar a porta a sua frente, entao você lembra\n");
-            descricao.append("dos riscos. O que terá atrás daquela porta?\n");
-            if (cont == 0) {
-                descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
-                JogoChaves jogoChaves = new JogoChaves();
-                this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
-                cont++;
-            }
-
+            descricao.append("dos perigos que podem acontecer em um hambiente desconhecido.\n");
+            descricao.append("Se quiser tentar a sorte, digite o comando DigitaSenha\n");
+            descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
+            JogoChaves jogoChaves = new JogoChaves();
+            this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
         }
 
         if (!escuro && senha == 1) {
 
-            descricao.append("Você digita a senha 1234. A porta a sua frente abre \n");
+            descricao.append("Você digita a senha 56789. A porta a sua frente abre \n");
             descricao.append(", e uma silhueta aparece a sua frente.Você não \n");
             descricao.append("consegue identificar devido a forte luz atrás de você, \n");
             descricao.append("mas claramente é uma silhueta feminina. Ela se  \n");
@@ -75,24 +72,27 @@ public class SalaEsquerda extends Sala {
             descricao.append(" mais forte, por fim sufocando-o até a morte na \n");
             descricao.append("euforia do seu amor.\n");
             descricao.append("\n");
-            descricao.append("Fim de Jogo\n");
+            descricao.append("Fim de Jogo\n\n");
             // throw new FimDeJogoException();
         }
 
         if (!escuro && senha == 2) {
-
-            descricao.append(" Você digita a senha 5678 e a porta a frente se \n");
+            descricao.append("\n");
+            descricao.append(" Você digita a senha 01234 e a porta a frente se \n");
             descricao.append("abre, com a princesa Isthar a sua frente. Ela o \n");
             descricao.append("reconhece imediatamente e corre aos seus braços, \n");
             descricao.append("envolvendo-o com o seu corpo pequeno e perfumado, \n");
             descricao.append("fitando-o com os seus lindos olhos verdes, cheios \n");
             descricao.append("de lágrimas. Vocês voltam para nave e decolam para \n");
             descricao.append(" casa, deixando para trás o terrível DalhiNinguemScapus.\n");
+            descricao.append("\n");
+            descricao.append("Fim de Jogo\n\n");
+          
             //  throw new FimDeJogoException();
         }
 
         if (!escuro && senha == 3) {
-
+            descricao.append("\n");
             descricao.append("Você digita a senha, coma esperança de ter a \n");
             descricao.append("princesa Isthar em seus braços novamente...\n");
             descricao.append("mas algo dá errado! Sirenes começam a tocar, e \n");
@@ -103,7 +103,8 @@ public class SalaEsquerda extends Sala {
             descricao.append("\n");
             descricao.append("DalhiNinguemScapus!\n");
             descricao.append("\n");
-            descricao.append("Fim de Jogo");
+            descricao.append("Fim de Jogo\n\n");
+          
             // throw new FimDeJogoException();
 
         }
@@ -157,19 +158,19 @@ public class SalaEsquerda extends Sala {
 
         if (senha == " ") {
             System.out.println("Não pode estar em branco");
-        }
-
-        else if (senha == "01234") {
+        } else if (senha == "01234") {
             SalaEsquerda.senha = 2;
-        }
-
-        else if (senha == "56789") {
+        } else if (senha == "56789") {
             SalaEsquerda.senha = 1;
-        }
-        
-        else if (senha != "56789" || senha !="01234" ) {
+        } else if (senha != "56789" && senha != "01234") {
             SalaEsquerda.senha = 3;
         }
+    }
+
+    public static boolean getEscuro() {
+
+        return SalaEsquerda.escuro;
+
     }
 
     @Override
@@ -179,12 +180,6 @@ public class SalaEsquerda extends Sala {
             escuro = true;
         }
         return aux;
-    }
-    
-    public static boolean getEscuro(){
-    
-       return SalaEsquerda.escuro;
-    
     }
 
     Scanner in = new Scanner(System.in);

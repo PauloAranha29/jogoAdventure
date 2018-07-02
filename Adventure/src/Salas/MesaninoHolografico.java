@@ -30,7 +30,7 @@ public class MesaninoHolografico extends Sala {
         descricao.append("Voce esta no ").append(this.getNome()).append("\n");
         descricao.append("Ao entrar na sala, você verifica que não há nada na sala,\n");
         descricao.append("a não ser três botões grandes e uma tela enorme, do\n");
-        descricao.append("tamanho de 1/4 de 1/6 de 1/8 de um estádio de futebol");
+        descricao.append("tamanho de 1/4 de 1/6 de 1/8 de um estádio de futebol\n");
         descricao.append("que parecem estar estragados ou oxidados pelo tempo.\n");
         descricao.append("O que você faz?\n");
 
@@ -38,19 +38,23 @@ public class MesaninoHolografico extends Sala {
 
             descricao.append("Ao apertar os botões, uma imagem aparece na tela \n");
             descricao.append("dentre os vários caracteres estranhos que se formam,\n");
-            descricao.append(" você consegue identificar dois códigos:\n");
+            descricao.append("você consegue identificar dois códigos:\n");
             descricao.append("\n");
             descricao.append("01234\n");
             descricao.append("\n");
             descricao.append("56789\n");
-            descricao.append("\n");//Aqui nosso herói deve volar com as senhas
+            descricao.append("\n");
+            descricao.append("Uma porta se abre a sua frente, e você consegue identificar");
+            descricao.append("O Hall de Entrada\n");
+            descricao.append("\n");
+            descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+            return descricao.toString();//Aqui nosso herói deve volar com as senhas
             //Para o Hall de entrada, porta de esquerda  e tentar a sorte com
             // a senhas
         }
 
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
         return descricao.toString();
     }
 
@@ -71,10 +75,12 @@ public class MesaninoHolografico extends Sala {
             return false;
         }
 
-        DisplayGigante dg = (DisplayGigante) this.getObjetos().get("123456");
-        dg.usar(f);
-        displayConsertado = true;
-        return true; // E nosso herói finalmente consegue a senha...
+          if (f instanceof JogoChaves) {
+            displayConsertado = true;
+            return true;
+        } else {
+            return false;
+        }
 
     }
 }

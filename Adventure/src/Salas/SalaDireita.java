@@ -34,9 +34,13 @@ public class SalaDireita extends Sala {
         descricao.append("O que você faz?\n");
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+        if (portaAberta == true) {
+            descricao.append("\n\n");
+            descricao.append(" A porta do chão se abre sob seus pés, e você vê uma pequena passagem abaixo\n");
+            descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+            return descricao.toString();
+        }
         return descricao.toString();
-
     }
 
     @Override
@@ -61,12 +65,6 @@ public class SalaDireita extends Sala {
         } else {
             return false;
         }
-    }
-
-    public static boolean proximaSala() {
-
-        return portaAberta;
-
     }
 
 }

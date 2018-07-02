@@ -50,15 +50,11 @@ public class Engine {
 
         // portas pra salaDireita
         salaDireita.getPortas().put(hallEntrada.getNome(), hallEntrada);
-        if (Salas.SalaDireita.proximaSala() == true) {
-            salaDireita.getPortas().put(subsolo.getNome(), subsolo);
-        }
+        salaDireita.getPortas().put(subsolo.getNome(), subsolo);
 
         //portas pro Subsolo
         subsolo.getPortas().put(salaDireita.getNome(), salaDireita);
-        if (Salas.Subsolo.proximaSala() == true) {
-            subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
-        }
+        subsolo.getPortas().put(salaIntermediaria.getNome(), salaIntermediaria);
 
         // portas pra salaIntermediaria
         salaIntermediaria.getPortas().put(subsolo.getNome(), subsolo);
@@ -107,6 +103,16 @@ public class Engine {
                         System.out.println("Digite a senha:\n");
                         String senha = in.nextLine();
                         Salas.SalaEsquerda.getSenhaFinal(senha);
+                        break;
+                    }
+                case "DigitaOpcao":
+                    if (Salas.SalaIntermediaria.getBomba() == false) {
+                        break;
+                    } else {
+                        System.out.println("Digite a opçao:\n");
+                        String opcao1 = in.nextLine();
+                        String opcao = in.nextLine();
+                        Salas.SalaIntermediaria.getOpcao(opcao);
                         break;
                     }
                 case "sai":

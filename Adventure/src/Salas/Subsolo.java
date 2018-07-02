@@ -21,13 +21,13 @@ public class Subsolo extends Sala {
     private boolean escuro;
     private boolean examinado;
     private boolean esqueletoExplodido;
-    private static Boolean portaAberta;
+
     public Subsolo() {
         super("Subsolo");
         escuro = true;
         examinado = false;
         esqueletoExplodido = false;
-        portaAberta = false;
+
     }
 
     @Override
@@ -43,25 +43,28 @@ public class Subsolo extends Sala {
             descricao.append("porém você nota uma grande janela no alto da sala, que não pode ser alcançada. \n");
             descricao.append("A sua direita você se depara com um esqueleto de um humanóide gigante,\n");
             descricao.append("morto há tempos para sua felicidade.\n");
-            descricao.append("Ao examiar o humanóide, você encontra uma \n");
+            descricao.append("Ao examinar o humanóide, você encontra uma \n");
             descricao.append("BombaNeutrons escondida. Olha aí a sorte te ajudando de novo...\n");
             BombaNeutrons bombaNeutrons = new BombaNeutrons();
             this.getFerramentas().put(bombaNeutrons.getDescricao(), bombaNeutrons);
-        
-        } else if (!escuro && esqueletoExplodido) {
-            descricao.append("Você então usa a arma laser em direção ao esqueleto \n");
-            descricao.append("transformando-o em uma pilha de ossos e \n");
-            descricao.append("usando para subir e chegar até a janela.\n");
+            descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
+            descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
+            if (esqueletoExplodido == true) {
+                descricao.append("\n\n");
+                descricao.append("Você então usa a arma laser em direção ao esqueleto \n");
+                descricao.append("transformando-o em uma pilha de ossos e \n");
+                descricao.append("usando para subir e chegar até a janela.\n");
+                descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+                return descricao.toString();
+            }
+
         }
-        
-        descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
-        descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
         return descricao.toString();
     }
 
-    @Override
-    public boolean usa(String ferramenta) { // pode usar somente a lanterna e pistolaLaser
+    public boolean usa(String ferramenta) {
+
+        // pode usar somente a lanterna e pistolaLaser
         Ferramenta f = this.getMochila().usar(ferramenta);
         if (f == null || !(f instanceof Lanterna || f instanceof PistolaLaser)) {
             return false;
@@ -72,24 +75,20 @@ public class Subsolo extends Sala {
         }
         //libera para nosso heroi passar de sala
         if (f instanceof PistolaLaser) {
-
-            Esqueleto e = (Esqueleto) this.getObjetos().get("Monte de ossos");
-            e.usar(f);
             esqueletoExplodido = true;
-            portaAberta = true;
             return true;  //nosso herói sai do subsolo...
         }
-            return false;
-        
+        return false;
+
     }
-    
-     public static boolean proximaSala() {
-
-        return portaAberta;
-
-}     
-
-    
+     @Override
+    public Sala sai(String sala) {
+        Sala aux = super.sai(sala);
+        if (aux != null) {
+            escuro = true;
+        }
+        return aux;
+    }
     
 
 }

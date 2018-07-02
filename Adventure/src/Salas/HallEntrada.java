@@ -30,8 +30,8 @@ public class HallEntrada extends Sala {
         StringBuilder descricao = new StringBuilder();
         descricao.append("Voce esta no ").append(this.getNome()).append("\n");
         descricao.append("Parece uma sala completamente vazia. Há duas portas, uma a direita e outra a esquerda\n");
-        descricao.append("Sua PistolaLaser e sua Lanterna ainda estão na nave\n");
-        descricao.append("O que você faz?\n");
+        descricao.append("se ainda não pegou, não seja besta e pegue a suas\n");
+        descricao.append("PistolaLaser e sua Lanterna se ainda estiverem na nave\n");
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");

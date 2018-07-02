@@ -18,13 +18,13 @@ import java.util.Scanner;
  */
 public class SalaIntermediaria extends Sala {
 
-    private boolean bombaJogada;
-    private Integer opcao;
+    private static boolean bombaJogada;
+    private static String opcao;
 
     public SalaIntermediaria() {
         super("SalaIntermediaria");
         bombaJogada = false;
-        opcao = null;
+        opcao = "3333";
     }
 
     @Override
@@ -35,9 +35,9 @@ public class SalaIntermediaria extends Sala {
         descricao.append("usado pelos humanóides gigantes.\n");
         descricao.append("Há duas portas, uma a direita e uma a esquerda,\n");
         descricao.append("também de tamanho descomunal.\n");
-        descricao.append("O que você faz?");
+        descricao.append("O que você faz?\n");
 
-        if (bombaJogada) {
+        if (bombaJogada == true) {
 
             descricao.append("Sabendo que a bomba de nêutrons têm a capacidade de\n");
             descricao.append("anular componentes eletrônicos, você retira uma\n");
@@ -51,11 +51,12 @@ public class SalaIntermediaria extends Sala {
             descricao.append("\n");
             descricao.append("2 – Começa a chorar;\n");
             descricao.append("\n");
-            descricao.append("3 - Se abaixa e rola para baixo da mesa;\n");
+            descricao.append("3 - Se abaixa e rola para baixo da mesa;\n\n");
+            descricao.append("Digite o comando DigitaOpcao\n");
 
         }
 
-        if (opcao == 1) {
+        if (bombaJogada == true && opcao == "1") {
 
             descricao.append("Você, rápido como um raio e feroz como um dragão de Draxila,\n");
             descricao.append("saca sua pistola fazendo um rombo no corpo do gigante\n");
@@ -70,14 +71,11 @@ public class SalaIntermediaria extends Sala {
             descricao.append("não limpou os sapatos antes de entrar em casa, que você está fedendo\n");
             descricao.append("a cerveja Weissfuder,que é um inútil, etc, etc,etc. Então você morre,\n");
             descricao.append("feliz por ter escapado de semelhante destino.");
-       //     try {
-      //          throw new FimDeJogoException();
-     //       } catch (FimDeJogoException ex) {
-     //           System.out.println("Fim de jogo");
-     //       }
+            descricao.append("");
+            descricao.append("Fim de Jogo");
         }
 
-        if (opcao == 2) {
+        if (bombaJogada == true && opcao == "2") {
 
             descricao.append("Você começa a chorar e o seu medo faz com que você \n");
             descricao.append("urine nas calças.Infelizmente o gigante não se comove \n");
@@ -86,29 +84,29 @@ public class SalaIntermediaria extends Sala {
             descricao.append("estrangula lentamente, até você perder a consciência e \n");
             descricao.append("morrer.Tsc,tsc,tsc, esperava um fim mais heróico para um capitão estelar!\n");
             descricao.append("um capitão estelar!");
-    //        try {
-    //            throw new FimDeJogoException();
-   //         } catch (FimDeJogoException ex) {
-   //             System.out.println("Fim de jogo");
-   //         }
+            descricao.append("");
+            descricao.append("Fim de Jogo");
+
         }
 
-        if (opcao == 3) {
+        if (bombaJogada == true && opcao == "3") {
 
             descricao.append("Você se abaixa e rapidamente rola para baixo de um \n");
             descricao.append("dos computadores laterais.\n");
             descricao.append("Seu movimento é tão rápido que o gigante tropeça em  \n");
             descricao.append("seus próprios pés");
-            descricao.append("pés e cai violentamente, batendo a cabeça a porta a da \n");
+            descricao.append("e cai violentamente, batendo a cabeça na porta da \n");
             descricao.append("esquerda, abrindo-a.\n");
+            descricao.append("\n\n");
+            descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
+            return descricao.toString();
         }
         // e assim nosso herói pode passar para o mesanino holográfico
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
-        descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
         return descricao.toString();
     }
-    
+
     @Override
     public boolean pega(String nomeFerramenta) {
         boolean ok = super.pega(nomeFerramenta);
@@ -118,7 +116,7 @@ public class SalaIntermediaria extends Sala {
         }
         return false;
     }
-    
+
     @Override
     public boolean usa(String ferramenta) { // joga BombaNeutrons
         Ferramenta f = this.getMochila().usar(ferramenta);
@@ -135,22 +133,27 @@ public class SalaIntermediaria extends Sala {
         }
     }
 
-    // classe desenvolvida para esta sala
-    public Integer getOpcaoFinal(Integer opcao) {
+    public static boolean getBomba() {
 
-        if (opcao == null || opcao < 1 || opcao > 3) {
-            throw new IllegalArgumentException("opção inválida");
-        }
-        if (opcao == 1) {
-            return this.opcao = 1;
-        }
-        if (opcao == 2) {
-            return this.opcao = 2;
-        }
-        if (opcao == 3) {
-            return this.opcao = 3;
-        }
-        return opcao;
+        return SalaIntermediaria.bombaJogada;
+
     }
-    Scanner in = new Scanner(System.in);
+
+    // classe desenvolvida para esta sala
+    public static void getOpcao(String opcao) {
+
+        if (" ".equals(opcao)) {
+            System.out.println("Não pode estar em branco");
+        } else if ("1".equals(opcao)) {
+            SalaIntermediaria.opcao = "1";
+        } else if ("2".equals(opcao)) {
+            SalaIntermediaria.opcao = "2";
+        } else if ("3".equals(opcao)) {
+            SalaIntermediaria.opcao = "3";
+        } else if (opcao != "1" || opcao != "2" || opcao != "3") {
+            System.out.println("Opção Inválida");
+        }
+
+    }
+
 }
