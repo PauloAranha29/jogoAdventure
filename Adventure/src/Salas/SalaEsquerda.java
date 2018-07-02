@@ -23,14 +23,18 @@ import java.util.Scanner;
  */
 public class SalaEsquerda extends Sala {
 
-    private boolean escuro;
-    static Integer senha;
+    private static boolean escuro;
+    protected static int senha;
+    private int cont;
+    private int cont2;
 
     public SalaEsquerda() {
         super("SalaEsquerda");
 
         escuro = true;
-        senha = 0;
+        senha = 8;
+        cont = 0;
+        cont2 = 0;
     }
 
     @Override
@@ -45,9 +49,12 @@ public class SalaEsquerda extends Sala {
             descricao.append("Você pensa em digitar alguns algarismo, para ver\n");
             descricao.append("se consegue destravar a porta a sua frente, entao você lembra\n");
             descricao.append("dos riscos. O que terá atrás daquela porta?\n");
-            descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
-            JogoChaves jogoChaves = new JogoChaves();
-            this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
+            if (cont == 0) {
+                descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
+                JogoChaves jogoChaves = new JogoChaves();
+                this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
+                cont++;
+            }
 
         }
 
@@ -67,6 +74,8 @@ public class SalaEsquerda extends Sala {
             descricao.append("que para você são indecifráveis, o abraça cada vez\n");
             descricao.append(" mais forte, por fim sufocando-o até a morte na \n");
             descricao.append("euforia do seu amor.\n");
+            descricao.append("\n");
+            descricao.append("Fim de Jogo\n");
             // throw new FimDeJogoException();
         }
 
@@ -84,16 +93,17 @@ public class SalaEsquerda extends Sala {
 
         if (!escuro && senha == 3) {
 
-            descricao.append("Você digita a senha, coma esperança de ter a  \n");
+            descricao.append("Você digita a senha, coma esperança de ter a \n");
             descricao.append("princesa Isthar em seus braços novamente...\n");
             descricao.append("mas algo dá errado! Sirenes começam a tocar, e\n");
-            descricao.append("ntes que você consiga reagir, já está cercado por\n");
+            descricao.append("antes que você consiga reagir, já está cercado por\n");
             descricao.append("quatro enormes gigantes, que rapidamente o\n");
-            descricao.append("imobilizam. Você acaa de se tornar mais um\n");
+            descricao.append("imobilizam. Você acaba de se tornar mais um\n");
             descricao.append("prisioneiro do terrível...\n");
             descricao.append("\n");
             descricao.append("DalhiNinguemScapus!\n");
             descricao.append("\n");
+            descricao.append("Fim de Jogo");
             // throw new FimDeJogoException();
 
         }
@@ -143,21 +153,21 @@ public class SalaEsquerda extends Sala {
     }
 
     // classe desenvolvida para esta sala
-    public static void getSenhaFinal(Integer senha) {
+    public static void getSenhaFinal(String senha) {
 
-        List<Integer> lista = new ArrayList<>();
-        lista.add(senha);
-
-        if (lista.isEmpty()) {
-            throw new IllegalArgumentException("opção inválida");
+        if (senha == " ") {
+            System.out.println("Não pode estar em branco");
         }
 
-        if (lista.contains(01234)) {
+        else if (senha == "01234") {
+            SalaEsquerda.senha = 2;
+        }
+
+        else if (senha == "56789") {
             SalaEsquerda.senha = 1;
         }
-        if (lista.contains(65789)) {
-            SalaEsquerda.senha = 2;
-        } else {
+        
+        else if (senha != "56789" || senha !="01234" ) {
             SalaEsquerda.senha = 3;
         }
     }
@@ -169,6 +179,12 @@ public class SalaEsquerda extends Sala {
             escuro = true;
         }
         return aux;
+    }
+    
+    public static boolean getEscuro(){
+    
+       return SalaEsquerda.escuro;
+    
     }
 
     Scanner in = new Scanner(System.in);

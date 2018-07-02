@@ -97,11 +97,11 @@ public class Engine {
                     break;
                     
                     case "DigitaSenha":
-                     System.out.println("Digite a senha:\n");   
-                     Integer senha = in.nextInt();;
-                      Salas.SalaEsquerda.getSenhaFinal(senha);
-                   
-                      break;
+                     if(Salas.SalaEsquerda.getEscuro() == true){break;}   
+                     else{System.out.println("Digite a senha:\n");   
+                     String senha = in.nextLine();
+                     Salas.SalaEsquerda.getSenhaFinal(senha);
+                      break;}
                 case "sai":
                     Sala novaSala = salaCorrente.sai(tokens[1]);
                     if (novaSala == null) {
